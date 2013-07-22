@@ -1,5 +1,6 @@
 from django.test import TestCase
-from timecode.models import Timecode, TestModel
+from timecode import Timecode
+from .models import TestModel
 
 
 class TimecodeTest(TestCase):
