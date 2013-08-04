@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name='django-timecode',
-    version='0.1.0',
+    version='0.1.2',
     description='Provides classes for working with timecodes (as used in the video industry).',
     long_description=open('README.md').read(),
     author='Joe Rickerby',
