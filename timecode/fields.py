@@ -45,8 +45,8 @@ class TimecodeField(models.Field):
         raise TypeError('value is not a Timecode')
 
     def to_python(self, value):
-        if value is None:
-            return value
+        if value is None or value == '':
+            return None
         if isinstance(value, Timecode):
             return value
         try:
