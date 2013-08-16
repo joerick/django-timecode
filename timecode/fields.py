@@ -3,6 +3,13 @@ from django.core import exceptions, validators
 from django import forms
 from .timecode import Timecode
 
+try:
+    from south.modelsinspector import add_introspection_rules
+except ImportError:
+    pass
+else:
+    add_introspection_rules([], ["^timecode\.fields\.TimecodeField"])
+
 
 class TimecodeFormField(forms.Field):
     def to_python(self, value):
