@@ -31,10 +31,15 @@ class Timecode():
         return '%02i:%02i:%02i:%02i' % self.components()
 
     def __cmp__(self, other):
+        if not isinstance(other, Timecode):
+            raise TypeError
         return cmp(self.total_frames, other.total_frames)
 
     def __eq__(self, other):
         return isinstance(other, Timecode) and self.total_frames == other.total_frames
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
     def __hash__(self):
         return hash(self.total_frames)
