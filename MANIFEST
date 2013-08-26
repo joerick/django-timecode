@@ -4,6 +4,8 @@ setup.py
 timecode/__init__.py
 timecode/fields.py
 timecode/timecode.py
+timecode/static/timecode/jquery.caret.js
+timecode/static/timecode/widget.js
 timecode/test/__init__.py
 timecode/test/models.py
 timecode/test/settings.py

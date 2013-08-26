@@ -1,1 +1,2 @@
 include *.md
+include timecode/static/timecode/*.js
