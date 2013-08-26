@@ -11,7 +11,18 @@ else:
     add_introspection_rules([], ["^timecode\.fields\.TimecodeField"])
 
 
+class TimecodeWidget(forms.TextInput):
+    def __init__(self, attrs={}):
+        attrs.update({'class': 'timecode-widget'})
+        super(TimecodeWidget, self).__init__(attrs)
+
+    class Media:
+        js = ('timecode/widget.js', 'timecode/jquery.caret.js',)
+
+
 class TimecodeFormField(forms.Field):
+    widget = TimecodeWidget
+
     def to_python(self, value):
         if value in validators.EMPTY_VALUES:
             return None
@@ -63,7 +74,3 @@ class TimecodeField(models.Field):
         defaults = {'form_class': TimecodeFormField}
         defaults.update(kwargs)
         return super(TimecodeField, self).formfield(**defaults)
-
-
-class TestModel(models.Model):
-    timecode = TimecodeField(blank=True, null=True)
