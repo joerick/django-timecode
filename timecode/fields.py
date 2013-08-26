@@ -30,7 +30,7 @@ class TimecodeField(models.Field):
     __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
-        kwargs['max_length'] = 12
+        kwargs['max_length'] = 14
         models.Field.__init__(self, *args, **kwargs)
 
     def value_to_string(self, obj):
