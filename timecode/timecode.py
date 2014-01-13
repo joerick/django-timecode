@@ -9,15 +9,21 @@ class Timecode():
         if string is None:
             self.total_frames = int(total_frames)
         else:
-            if len(string) != 11:
-                raise ValueError('Timecodes must be in the format 00:00:00:00')
-
             unpacked = string.split(':')
 
-            if len(unpacked) != 4:
-                raise ValueError('Timecodes must have four numbers divided by a colon')
-
-            hours, minutes, seconds, frames = (int(each) for each in unpacked)
+            if len(unpacked) == 1:
+                hours = minutes = seconds = 0
+                frames = int(unpacked[0])
+            elif len(unpacked) == 2:
+                hours = minutes = 0
+                seconds, frames = (int(each) for each in unpacked)
+            elif len(unpacked) == 3:
+                hours = 0
+                minutes, seconds, frames = (int(each) for each in unpacked)
+            elif len(unpacked) == 4:
+                hours, minutes, seconds, frames = (int(each) for each in unpacked)
+            else:
+                raise ValueError('Invalid timecode %s' % string)
 
             if hours > 99 or minutes > 59 or seconds > 59 or frames >= fps:
                 raise ValueError('Invalid timecode %s' % string)
