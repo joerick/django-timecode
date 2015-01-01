@@ -6,6 +6,7 @@ function isDivider(asciiCode) {
     return asciiCode == 58 || asciiCode == 46;
 }
 
+(function($) {
 $(document).ready(function () {
     var f = $(".timecode-widget");
     f.attr("placeholder", "hh:mm:ss:ff");
@@ -34,3 +35,4 @@ $(document).ready(function () {
         }
     });
 });
+})(django.jQuery)
