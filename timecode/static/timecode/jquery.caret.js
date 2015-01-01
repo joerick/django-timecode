@@ -67,4 +67,4 @@
       target.focus();
     return pos;
   }
-})(jQuery)
+})(django.jQuery)
