@@ -7,6 +7,9 @@ function isDivider(asciiCode) {
 }
 
 (function($) {
+    if (typeof $ == 'undefined') {
+        $ = django.jQuery;
+    }
     $(document).ready(function () {
         var f = $(".timecode-widget");
         f.attr("placeholder", "hh:mm:ss:ff");
@@ -35,4 +38,4 @@ function isDivider(asciiCode) {
             }
         });
     });
-})(django.jQuery)
+})(jQuery)
