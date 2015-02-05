@@ -1,4 +1,7 @@
 (function($) {
+  if (typeof $ == 'undefined') {
+    $ = django.jQuery;
+  }
   $.fn.caret = function(pos) {
     var target = this[0];
 	var isContentEditable = target.contentEditable === 'true';
